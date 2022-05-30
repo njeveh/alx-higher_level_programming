@@ -14,6 +14,8 @@ int check_cycle(listint_t *list)
 
 	while (slow_p && fast_p && fast_p->next)
 	{
+		if (hare->next == NULL)
+			return (0);
 		slow_p = slow_p->next;
 		fast_p = fast_p->next->next;
 		if (slow_p == fast_p)
