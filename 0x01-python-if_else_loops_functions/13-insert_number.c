@@ -35,6 +35,7 @@ listint_t *insert_node(listint_t **head, int number)
 		}
 		new->next = trailer->next;
 		trailer->next = new;
+		return (new);
 	}
 	while (leader)
 	{
