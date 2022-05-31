@@ -1,4 +1,6 @@
 #!/usr/bin/python3
-for i in range(0, 99):
+for i in range(0, 100):
+    if i == 99:
+        print('99')
+        break
     print("{0:02d},".format(i), end=' ')
-print('99')
