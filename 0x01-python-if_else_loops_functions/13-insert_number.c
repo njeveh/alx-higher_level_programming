@@ -26,8 +26,8 @@ listint_t *insert_node(listint_t **head, int number)
 	new->n = number;
 	if (*head == NULL)
 	{
-		free(new);
-		new = add_nodeint_end(head, number);
+		*head = new;
+		new->next = NULL;
 		return (new);
 	}
 	if (leader == NULL || trailer->n > number)
