@@ -6,3 +6,4 @@ def uppercase(str):
         if character in range(97, 123):
             character -= 32
         print("{0:c}".format(character), end='')
+    print()
