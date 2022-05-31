@@ -26,12 +26,12 @@ listint_t *insert_node(listint_t **head, int number)
 		return (NULL);
 	}
 	new->n = number;
-	if (leader == NULL)
+	if (leader == NULL || trailer->n > number)
 	{
 		if (trailer->n > number)
 		{
 			new->next = trailer;
-			trailer = new;
+			*head = new;
 		}
 		new->next = trailer->next;
 		trailer->next = new;
