@@ -24,15 +24,9 @@ listint_t *insert_node(listint_t **head, int number)
 		return (NULL);
 	}
 	new->n = number;
-	if (trailer == NULL)
+	if (trailer == NULL || leader == NULL || trailer->n > number)
 	{
-		*head = new;
-		new->next = NULL;
-		return (new);
-	}
-	if (leader == NULL || trailer->n > number)
-	{
-		if (trailer->n > number)
+		if (trailer->n > number || trailer == NULL)
 		{
 			new->next = *head;
 			*head = new;
