@@ -30,7 +30,7 @@ listint_t *insert_node(listint_t **head, int number)
 	{
 		if (trailer->n > number)
 		{
-			new->next = trailer;
+			new->next = *head;
 			*head = new;
 		}
 		new->next = trailer->next;
