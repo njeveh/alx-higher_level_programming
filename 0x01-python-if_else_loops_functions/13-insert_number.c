@@ -36,14 +36,18 @@ listint_t *insert_node(listint_t **head, int number)
 		new->next = trailer->next;
 		trailer->next = new;
 	}
-	do {
+	while (leader)
+	{
 		if (leader->n >= number && trailer->n <= number)
 		{
-			trailer->next = new;
 			new->next = leader;
+			trailer->next = new;
+			break;
 		}
 		leader = leader->next;
 		trailer = trailer->next;
-	} while (leader);
+		if (leader == NULL)
+			add_nodeint_end(head, number);
+	}
 	return (new);
 }
