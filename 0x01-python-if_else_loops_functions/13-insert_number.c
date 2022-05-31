@@ -16,7 +16,7 @@ listint_t *insert_node(listint_t **head, int number)
 
 	leader = *head->next;
 	trailer = *head;
-	if (head == NULL)
+	if (*head == NULL)
 		return (NULL);
 	new = malloc(sizeof(*new));
 
