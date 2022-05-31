@@ -7,4 +7,4 @@ for i in range(10):
             print("{:d}{:d}".format(i, j))
             break
         elif i < j:
-            print("{:d}{:d}".format(i, j), end=',')
+            print("{:d}{:d} ".format(i, j), end=',')
