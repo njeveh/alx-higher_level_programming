@@ -7,9 +7,6 @@ def fizzbuzz():
     For numbers which are multiples of both three and five print FizzBuzz.
     """
     for i in range(1, 101):
-        if i == 100:
-            print("Buzz")
-            break
         if (i % 3) == 0 and (i % 5) == 0:
             print("FizzBuzz", end=' ')
         elif (i % 3) == 0:
