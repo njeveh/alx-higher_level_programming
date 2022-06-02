@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+
+
 if __name__ == '__main__':
     from sys import argv
-    argc = len(argv)
-    sum = 0
 
-    for i in range(argc):
-        sum += int(argv[i])
-    print("{:d}".format(sum))
+    sum = 0
+    for i, arg in enumerate(argv[1:]):
+        sum += int(arg)
+
+    print('{:d}'.format(sum))
