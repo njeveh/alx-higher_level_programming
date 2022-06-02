@@ -5,4 +5,4 @@ a = 1
 b = 2
 
 if __name__ == "__main__":
-    print(f"{a} + {b} = {add(a, b)}")
+    print("{0:d} + {0:d} = {0:d}".format(a, b, add(a, b)))
