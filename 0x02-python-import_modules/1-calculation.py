@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import calculator1 as calc
-
 a = 10
 b = 5
 
