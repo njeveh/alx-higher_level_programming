@@ -8,7 +8,7 @@ if __name__ == '__main__':
         if argc > 0:
             print("{:d} arguments:".format(argc))
         else:
-            print("0 arguments.".format(argc))
+            print("0 arguments.")
 
     for i in range(argc):
-        print("{:d} {:s}".format(i, argv[i]))
+        print("{:d}: {:s}".format(i, argv[i]))
