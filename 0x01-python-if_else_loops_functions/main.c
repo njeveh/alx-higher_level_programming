@@ -1,6 +1,30 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "lists.h"
+
+/**
+ * main - create list and test insert in NULL / empty list
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+	listint_t *head;
+
+	head = NULL;
+	print_listint(head);
+
+	printf("-----------------\n");
+
+	insert_node(&head, 972);
+
+	print_listint(head);
+
+	free_listint(head);
+
+	return (0);
+}
 
 /**
  * print_listint - prints all elements of a listint_t list
@@ -11,8 +35,6 @@ size_t print_listint(const listint_t *h)
 {
     const listint_t *current;
     unsigned int n; /* number of nodes */
-    if (h == NULL)
-	    return;
 
     current = h;
     n = 0;
@@ -73,4 +95,64 @@ void free_listint(listint_t *head)
         head = head->next;
         free(current);
     }
+}
+
+/**
+ * insert_node - inserts a number into a sorted singly linked list.
+ * @head: pointer to the first node of the linked list
+ * @number: the number to be inserted
+ *
+ * Return: listint_t* - the address of the new node, or NULL on failure
+ */
+
+listint_t *insert_node(listint_t **head, int number)
+{
+	listint_t *leader, *trailer, *new;
+
+	leader = *head;
+	leader = leader->next;
+	trailer = *head;
+	new = malloc(sizeof(*new));
+
+	if (new == NULL)
+	{
+		return (NULL);
+	}
+	new->n = number;
+	new->next = NULL;
+
+	if(*head == NULL)
+	{
+		*head = new;
+		return (new);
+	}
+	if (leader == NULL || trailer->n > number)
+	{
+		if (trailer->n > number)
+		{
+			new->next = *head;
+			*head = new;
+			return (new);
+		}
+		new->next = trailer->next;
+		trailer->next = new;
+		return (new);
+	}
+	while (leader)
+	{
+		if (leader->n >= number && trailer->n <= number)
+		{
+			new->next = leader;
+			trailer->next = new;
+			break;
+		}
+		leader = leader->next;
+		trailer = trailer->next;
+		if (leader == NULL)
+		{
+			new->next = NULL;
+			trailer->next = new;
+		}
+	}
+	return (new);
 }
