@@ -5,4 +5,4 @@ def no_c(my_string):
     if my_string:
         new_string = my_string[:]
         new_string.remove(i for i in new_string if i == 'c' or i == 'C')
-        return new_string
+        return str(new_string)
