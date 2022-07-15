@@ -1,151 +1,133 @@
 #!/usr/bin/python3
-'''
-Test module for the rectangle.py file
-'''
+"""Rectangle class unittests"""
+import io
+import sys
 import unittest
+from models.base import Base
 from models.rectangle import Rectangle
 
 
 class TestRectangleClass(unittest.TestCase):
-    def setUp(self):
-        '''
-        Create an instance of a Rectangle to be used across the tests
-        '''
-        self.rec = Rectangle(20, 5, 0, 0, 25)
-        self.rec1 = Rectangle(8, 2)
 
-    def tearDown(self):
-        '''
-        Deletes the instance used for testing
-        '''
-        del self.rec
-        del self.rec1
+    def test_class_membership(self):
+        """Rectangle class unittest"""
+        r0 = Rectangle(10, 2)
+        self.assertIsInstance(r0, Base)
+        self.assertIsInstance(r0, Rectangle)
 
-    def test_2_pars(self):
-        # Will be 3 because in the base tests we created two instances
-        self.assertEqual(self.rec.width, 20)
-        self.assertEqual(self.rec.height, 5)
+    def test_attributes_with_correct_initialization(self):
+        """Rectangle  attribute unittest"""
+        r1 = Rectangle(5, 6)
+        self.assertEqual(r1.id, 16)
+        self.assertEqual(r1.width, 5)
+        self.assertEqual(r1.height, 6)
+        self.assertEqual(r1.x, 0)
+        self.assertEqual(r1.y, 0)
 
-    def test_no_attributes(self):
-        '''
-        When no argument is passed
-        '''
+    def test_private_instance_attributes(self):
+        """Rectangle private attribute unittest"""
+        r2 = Rectangle(7, 8)
+        with self.assertRaises(AttributeError):
+            r2.__width
+        with self.assertRaises(AttributeError):
+            r2.__height
+        with self.assertRaises(AttributeError):
+            r2.__x
+        with self.assertRaises(AttributeError):
+            r2.__y
+
+    def test_attributes_wrong_data_types(self):
+        """Rectangle wrong data types unittest"""
         with self.assertRaises(TypeError):
-            r = Rectangle()
-
-    def test_validators(self):
-        # When more than five arguments are passed
+            r3 = Rectangle('a', 9)
         with self.assertRaises(TypeError):
-            r = Rectangle(2, 3, 4, 5, 5, 6)
-
-    def test_width_length_validator(self):
-        '''
-        When non int type is passed as a parameter
-        '''
+            r4 = Rectangle(9, 'a')
         with self.assertRaises(TypeError):
-            r = Rectangle("a", "b")
-
+            r5 = Rectangle(9, 9, 'a')
         with self.assertRaises(TypeError):
-            r = Rectangle(5, "b")
+            r6 = Rectangle(9, 9, 3, 'a')
 
-        with self.assertRaises(TypeError):
-            r = Rectangle(5, 5, "a", "b")
-
-        with self.assertRaises(TypeError):
-            r = Rectangle(5, 5, 6, "b")
-
-    def test_parameter_value(self):
-        '''
-        When values that are less than or equal to 0 are passed as parameters
-        '''
+    def test_attributes_with_wrong_int_range(self):
+        """Rectangle wrong int range unittest"""
         with self.assertRaises(ValueError):
-            r = Rectangle(0, 0)
-
+            r7 = Rectangle(0, 1)
         with self.assertRaises(ValueError):
-            r = Rectangle(6, 0)
-
+            r8 = Rectangle(1, 0)
         with self.assertRaises(ValueError):
-            r = Rectangle(-2, -3)
-
+            r9 = Rectangle(1, 1, -2)
         with self.assertRaises(ValueError):
-            r = Rectangle(4, -4)
+            r10 = Rectangle(1, 1, 1, -2)
 
-        with self.assertRaises(ValueError):
-            r = Rectangle(7, 8, -4, -3)
+    def test_area_method(self):
+        """Rectangle method unittest"""
+        r11 = Rectangle(10, 10)
+        self.assertEqual(r11.area(), 100)
 
-        with self.assertRaises(ValueError):
-            r = Rectangle(7, 8, 4, -3)
+    def test_display_method(self):
+        """Rectangle display method unittest"""
+        output = io.StringIO()
+        sys.stdout = output
+        r12 = Rectangle(2, 2)
+        r12.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "##\n##\n")
 
-    def test_id(self):
-        '''
-        Check that the correct id is asigned
-        '''
-        self.assertEqual(self.rec.id, 25)
+    def test_str_method(self):
+        """Rectangle __str__ method unittest"""
+        r13 = Rectangle(2, 2)
+        str_r = r13.__str__()
+        self.assertEqual(str_r, '[Rectangle] (29) 0/0 - 2/2')
+        r14 = Rectangle(4, 6, 2, 1, 12)
+        str_r1 = r14.__str__()
+        self.assertEqual(str_r1, '[Rectangle] (12) 2/1 - 4/6')
 
-    def test_attributes_getter(self):
-        '''
-        Test that the attributes have been set
-        '''
-        self.assertEqual(self.rec.width, 20)
-        self.assertEqual(self.rec.height, 5)
-        self.assertEqual(self.rec.x, 0)
-        self.assertEqual(self.rec.y, 0)
+    def test_display_method_w_coordinates(self):
+        """Rectangle display method unittest"""
+        output = io.StringIO()
+        sys.stdout = output
+        r15 = Rectangle(2, 2, 2, 1)
+        r15.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "\n  ##\n  ##\n")
 
-    def test_attributes_setters(self):
-        '''
-        Test that setter methods work correctly
-        '''
-        self.rec.width = 5
-        self.assertEqual(self.rec.width, 5)
-        self.rec.height = 20
-        self.assertEqual(self.rec.height, 20)
-        self.rec.x = 34
-        self.assertEqual(self.rec.x, 34)
-        self.rec.y = 4
-        self.assertEqual(self.rec.y, 4)
+    def test_update_method(self):
+        """Rectangle update method unittest"""
+        r16 = Rectangle(2, 2)
+        r16.update(3)
+        self.assertEqual(r16.id, 3)
+        r16.update(3, 5)
+        self.assertEqual(r16.width, 5)
+        r16.update(3, 5, 7)
+        self.assertEqual(r16.height, 7)
+        r16.update(3, 5, 7, 1)
+        self.assertEqual(r16.x, 1)
+        r16.update(3, 5, 7, 1, 2)
+        self.assertEqual(r16.y, 2)
+        str_r = r16.__str__()
+        self.assertEqual(str_r, '[Rectangle] (3) 1/2 - 5/7')
 
-    def test_attribute_setters_validation(self):
-        '''
-        Test that validation is properly done with setters
-        '''
-        with self.assertRaises(TypeError):
-            self.rec.width = "r"
+    def test_update_method_args_kwargs(self):
+        """Rectangle update method unittest"""
+        r17 = Rectangle(1, 1)
+        r17.update(width=1, x=2)
+        str_r = r17.__str__()
+        self.assertEqual(str_r, '[Rectangle] (32) 2/0 - 1/1')
+        r18 = Rectangle(2, 2)
+        r18.update(x=1, height=2, y=3, width=4, id=99)
+        str_r1 = r18.__str__()
+        self.assertEqual(str_r1, '[Rectangle] (99) 1/3 - 4/2')
+        r19 = Rectangle(10, 10, 10, 10, 10)
+        str_r2 = r19.__str__()
+        self.assertEqual(str_r2, '[Rectangle] (10) 10/10 - 10/10')
 
-        with self.assertRaises(TypeError):
-            self.rec.height = "r"
+    def test_to_dictionary_method(self):
+        """Rectangle to_dictionary method unittest"""
+        r20 = Rectangle(3, 3)
+        d = r20.to_dictionary()
+        self.assertEqual(d['width'], 3)
+        self.assertEqual(d['height'], 3)
+        self.assertEqual(d['x'], 0)
+        self.assertEqual(d['y'], 0)
 
-        with self.assertRaises(TypeError):
-            self.rec.x = "r"
-
-        with self.assertRaises(TypeError):
-            self.rec.x = "r"
-
-        with self.assertRaises(ValueError):
-            self.rec.width = 0
-
-        with self.assertRaises(ValueError):
-            self.rec.height = 0
-
-        with self.assertRaises(ValueError):
-            self.rec.width = -20
-
-        with self.assertRaises(ValueError):
-            self.rec.height = -20
-
-        with self.assertRaises(ValueError):
-            self.rec.x = -20
-
-        with self.assertRaises(ValueError):
-            self.rec.y = -20
-
-    def test_area(self):
-        '''
-        Test that the correct area is returned
-        '''
-        self.assertEqual(self.rec1.area(), 16)
-
-    def test_display(self):
-        '''
-        Test that display works corectly
-        '''
-        pass
+if __name__ == '__main__':
+    unittest.main()

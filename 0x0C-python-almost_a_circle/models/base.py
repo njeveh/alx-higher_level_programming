@@ -1,28 +1,18 @@
 #!/usr/bin/python3
-'''
-This module contains the Base Class.
-'''
+"""Defines Base class"""
 import json
 
 
 class Base:
-    '''
-    The base of all the other classes in this project.
-    It's main goal is to manage the id attribute in all future classes and to
-    avoid duplicating the same code.
-
-    Attributes:
-        __nb_objects (int): A private class attribute
-    '''
+    """Base class"""
 
     __nb_objects = 0
 
     def __init__(self, id=None):
-        '''
-        Constrictor method for the class
+        """__init__ method for Base class
         Args:
-            id (int): The id of the instance
-        '''
+            id (int): id for object
+        """
         if id is not None:
             self.id = id
         else:
@@ -31,68 +21,79 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        '''
-        Return JSON string representation of list_dictionaries
-        args:
-            list_dictionaries (list): A list of dictionaries
-        '''
-        if list_dictionaries is None:
+        """JSON string of object dictionary
+        Args:
+            list_dictionaries (list): list of dictionaries
+        Returns:
+            JSON string representation of list of dictionary
+        """
+        if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
-        else:
-            return json.dumps(list_dictionaries)
-
-    @staticmethod
-    def from_json_string(json_string):
-        '''
-        Returns the list of the JSON string representation `json_string`
-        args:
-            json_string (str): A json string
-        '''
-        if json_string is None:
-            return []
-        else:
-            return json.loads(json_string)
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        '''
-        Writes the JSON string representation of list_objs to a file
-        args:
-            list_objs (list): List of instances that inherit Base
-        '''
-        lst = []
-        with open(cls.__name__ + ".json", "w", encoding="utf-8") as f:
-            if list_objs:
-                for obj in list_objs:
-                    lst.append(obj.to_dictionary())
-            f.write(cls.to_json_string(lst))
+        """save_to_file - saves objects to a JSON file
+        Args:
+            list_objs (list): list of objects
+        """
+        json_list = []
+        json_string = '[]'
+        if list_objs is not None:
+            for obj in list_objs:
+                json_list.append(obj.to_dictionary())
+
+            if len(json_list) > 0:
+                json_string = Base.to_json_string(json_list)
+
+        with open(cls.__name__ + '.json', 'w') as f:
+            f.write(json_string)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """from_json_string - creates list of the JSON string representation
+        Args:
+            json_string (str): JSON string of object
+        Returns:
+            list of JSON string
+        """
+        if json_string is None or len(json_string) == 0:
+            return []
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
-        '''
-        Returns an instance with all attributes already set
-        args:
-            dictionary (dict): A "double pointer" to a dictionary
-        '''
+        """Creates an instance with all attributes set
+        Args:
+            dictionary (dict): dictionary of attributes and values
+        Returns:
+            instance of an object initialized
+        """
+        obj = None
         if cls.__name__ == 'Rectangle':
-            r = cls(10, 5)
-        if cls.__name__ == 'Square':
-            r = cls(10)
-        r.update(**dictionary)
-        return r
+            obj = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            obj = cls(1)
+        cls.update(obj, **dictionary)
+        return obj
+
+    @classmethod
+    def reset(cls):
+        """Reset __nb_objects back to zero"""
+        cls.__nb_objects = 0
 
     @classmethod
     def load_from_file(cls):
-        '''
-        Returns a list of instances
-        '''
-        inst_list = []
+        """load_from_file - creates a list of instances from JSON file
+        Returns:
+            list of instances
+        """
+        obj_list = []
         try:
-            with open(cls.__name__ + ".json", mode="r", encoding="utf-8") as f:
-                lst = cls.from_json_string(f.read())
-
-            for obj in lst:
-                inst_list.append(cls.create(**obj))
-            return inst_list
-        except:
-            return []
+            with open(cls.__name__ + '.json', 'r', encoding='utf-8') as f:
+                list_output = cls.from_json_string(f.read())
+                for obj in list_output:
+                    obj_list.append(cls.create(**obj))
+        except Exception:
+            pass
+        return obj_list
