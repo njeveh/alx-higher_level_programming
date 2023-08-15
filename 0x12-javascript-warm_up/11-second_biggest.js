@@ -1,14 +1,22 @@
 #!/usr/bin/node
 const argv = require('process').argv;
-const argumentsCount = argv.length;
-if (argumentsCount === 2 || argumentsCount === 3) {
+
+if (argv.length === 2 || argv.length === 3) {
   console.log(0);
 } else {
-  const arr = [Number(argv[2]), Number(argv[2])];
-  for (let i = 3; i < argumentsCount; ++i) {
-    if (Number(argv[i]) > arr[0]) {
-      arr[1] = arr[0];
-      arr[0] = Number(argv[i]);
+  //    Convert all the args to numbers and store in a new array
+  const arr = [];
+  for (let i = 2; i < argv.length; i++) {
+    arr[i - 2] = Number(argv[i]);
+  }
+  //    Sort the array in descending order
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j] < arr[j + 1]) {
+        const tmp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = tmp;
+      }
     }
   }
   console.log(arr[1]);
