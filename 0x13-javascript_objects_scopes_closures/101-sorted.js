@@ -8,5 +8,4 @@ for (const prop in dict) {
     newDict[dict[prop]] = [prop];
   }
 }
-console.log(dict);
 console.log(newDict);
