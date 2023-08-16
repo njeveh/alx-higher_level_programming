@@ -6,9 +6,9 @@ class Square extends Shape {
     if (c === undefined) {
       super.print();
     } else {
-      let line = 'C';
+      let line = c;
       for (let i = 1; i < this.width; i++) {
-        line = line + 'C';
+        line += c;
       }
       for (let i = 0; i < this.height; i++) {
         console.log(line);
