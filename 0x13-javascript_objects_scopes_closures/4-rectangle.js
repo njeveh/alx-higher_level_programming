@@ -9,24 +9,24 @@ class Rectangle {
   }
 
   print () {
-    let w = '';
-    for (let i = this.width; i > 0; --i) {
-      w += 'X';
+    let line = 'X';
+    for (let i = 1; i < this.width; i++) {
+      line = line + 'X';
     }
-    for (let j = this.height; j > 0; --j) {
-      console.log(w);
+    for (let i = 0; i < this.height; i++) {
+      console.log(line);
     }
   }
 
   rotate () {
-    const temp = this.width;
-    this.width = this.height;
-    this.height = temp;
+    const temp = this.height;
+    this.height = this.width;
+    this.width = temp;
   }
 
   double () {
-    this.width = this.width * 2;
     this.height = this.height * 2;
+    this.width = this.width * 2;
   }
 }
 
