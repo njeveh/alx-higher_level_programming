@@ -1,27 +1,32 @@
 #!/usr/bin/python3
-"""Script displays states in database by ascending id order that match request
-   Script should take 4 arguments:
-   mysql username, mysql-password, database-name, state-name
-"""
+'''script that takes in an argument and displays all values
+in the states table of hbtn_0e_0_usa where name matches the argument.'''
 
-if __name__ == '__main__':
-    import sys
-    import MySQLdb
+import MySQLdb
+from sys import argv
 
-    conn = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3],
-        charset="utf8"
-    )
-    cur = conn.cursor()
-    query = """SELECT * FROM states WHERE name = '{}' ORDER BY states.id ASC"""
-    cur.execute(query.format(sys.argv[4]))
-    query_rows = cur.fetchall()
-    for row in query_rows:
-        if row[1] == sys.argv[4]:
-            print(row)
-    cur.close()
-    conn.close()
+if __name__ == "__main__":
+    username = argv[1]
+    password = argv[2]
+    db_name = argv[3]
+    db_location = 'localhost'
+    port = 3306
+
+    search_param = argv[4]
+
+    db = MySQLdb.connect(host=db_location,
+                         user=username,
+                         db=db_name,
+                         port=port)
+
+    cursor = db.cursor()
+    query = """SELECT * FROM states
+            WHERE BINARY name = '{}' ORDER BY id ASC""".format(search_param)
+
+    cursor.execute(query)
+    data = cursor.fetchall()
+
+    for row in data:
+        print(row)
+
+    db.close()

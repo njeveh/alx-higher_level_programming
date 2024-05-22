@@ -1,34 +1,36 @@
 #!/usr/bin/python3
-"""Script lists all cities from a given state
-   and protects against SQL injections
-   Script should take 4 arguments:
-   mysql username, mysql-password, database-name, state-name
-"""
+'''script that takes in the name of a state as an
+argument and lists all cities of that state, using
+the database hbtn_0e_4_usa'''
 
-if __name__ == '__main__':
-    import sys
-    import MySQLdb
+import MySQLdb
+from sys import argv
 
-    conn = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3],
-        charset="utf8"
-    )
-    cur = conn.cursor()
-    query = """SELECT name FROM cities
-    WHERE state_id = (SELECT id FROM states WHERE name = %s)
-    ORDER BY id ASC"""
-    cur.execute(query, (sys.argv[4],))
-    query_rows = cur.fetchall()
+if __name__ == "__main__":
+    username = argv[1]
+    password = argv[2]
+    db_name = argv[3]
+    db_location = 'localhost'
+    port = 3306
+    search_param = argv[4]
 
-    query_list = []
-    for row in query_rows:
-        query_list.append(row[0])
-    state_str = ", ".join(query_list)
-    print(state_str)
+    db = MySQLdb.connect(host=db_location,
+                         user=username,
+                         passwd=password,
+                         db=db_name,
+                         port=port)
 
-    cur.close()
-    conn.close()
+    cursor = db.cursor()
+
+    query = """SELECT cities.name FROM states
+            INNER JOIN cities ON states.id = cities.state_id
+            WHERE states.name = %s
+            ORDER BY cities.id ASC"""
+
+    cursor.execute(query, (search_param,))
+    data = cursor.fetchall()
+
+    # Create list with items and join them with ", "
+    print(", ".join([city[0] for city in data]))
+
+    db.close()

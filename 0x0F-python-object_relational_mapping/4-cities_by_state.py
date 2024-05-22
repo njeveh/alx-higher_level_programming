@@ -1,29 +1,31 @@
 #!/usr/bin/python3
-"""Script lists all cities from the database
-   and protects against SQL injections
-   Script should take 3 arguments:
-   mysql username, mysql-password, database-name
-"""
+'''script that lists all cities from the database hbtn_0e_4_usa'''
 
-if __name__ == '__main__':
-    import sys
-    import MySQLdb
+import MySQLdb
+from sys import argv
 
-    conn = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3],
-        charset="utf8"
-    )
-    cur = conn.cursor()
-    query = """SELECT cities.id, cities.name, states.name FROM cities
-    INNER JOIN states ON cities.state_id = states.id ORDER BY id ASC;"""
-    cur.execute(query)
-    query_rows = cur.fetchall()
-    for row in query_rows:
+if __name__ == "__main__":
+    username = argv[1]
+    password = argv[2]
+    db_name = argv[3]
+    db_location = 'localhost'
+    port = 3306
+
+    db = MySQLdb.connect(host=db_location,
+                         user=username,
+                         passwd=password,
+                         db=db_name,
+                         port=port)
+
+    cursor = db.cursor()
+
+    cursor.execute("""SELECT cities.id, cities.name, states.name
+                    FROM cities, states WHERE cities.state_id = states.id
+                    ORDER BY cities.id""")
+
+    data = cursor.fetchall()
+
+    for row in data:
         print(row)
 
-    cur.close()
-    conn.close()
+    db.close()
