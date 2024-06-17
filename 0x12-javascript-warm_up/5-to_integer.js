@@ -1,7 +1,8 @@
 #!/usr/bin/node
-const arguments = require('process').argv;
-if (isNaN(Number(arguments[2]))) {
-    console.log('Not a number');
+const argv = require('process').argv;
+
+if (isNaN(Number(argv[2]))) {
+  console.log('Not a number');
 } else {
-    console.log(`My number: ${arguments[2]}`)
+  console.log('My number: ' + argv[2]);
 }
