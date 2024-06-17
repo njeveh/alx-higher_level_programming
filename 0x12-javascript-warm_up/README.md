@@ -24,3 +24,7 @@
 >> - The first line: “C is fun”.
 >> - The second line: “Python is cool”.
 >> - The third line: “JavaScript is amazing”.
+### 7-multi_c.js
+> A script that prints x times “C is fun”.
+>> - Where x is the first argument of the script,
+>> - If the first argument can’t be converted to an integer, print “Missing number of occurrences”.
