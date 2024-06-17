@@ -38,3 +38,9 @@
 >> - The first argument is the first integer
 >> - The second argument is the second integer
 >> - Has a function with this prototype: function add(a, b)
+### 10-factorial.js
+> A script that computes and prints a factorial.
+>> - The first argument is integer (argument can be cast as integer) used for computing the factorial
+>> - Factorial of NaN is 1
+>> - done recursively
+>> - uses a function
