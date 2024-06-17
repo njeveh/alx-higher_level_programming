@@ -14,3 +14,5 @@
 ### 3-value_argument.js
 > A script that prints the first argument passed to it.
 >> - If no arguments are passed to the script, print “No argument”.
+### 4-concat.js
+> A script that prints two arguments passed to it, in the following format: “ is ”.
