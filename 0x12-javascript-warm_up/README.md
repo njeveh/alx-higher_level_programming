@@ -49,3 +49,4 @@
 >> - Assumes all arguments can be converted to integer,
 >> - If no argument passed, it prints 0,
 >> - If the number of arguments is 1, it prints 0.
+### 12-object.js
