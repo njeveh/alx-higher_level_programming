@@ -50,3 +50,7 @@
 >> - If no argument passed, it prints 0,
 >> - If the number of arguments is 1, it prints 0.
 ### 12-object.js
+### 13-add.js
+> A function that returns the addition of 2 integers.
+>> - visible from outside
+>> - name of the function is add
