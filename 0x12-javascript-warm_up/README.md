@@ -33,3 +33,8 @@
 >> - The first argument is the size of the square,
 >> - If the first argument can’t be converted to an integer, print “Missing size”,
 >> - You must use the character X to print the square.
+### 9-add.js
+> A script that prints the addition of 2 integers.
+>> - The first argument is the first integer
+>> - The second argument is the second integer
+>> - Has a function with this prototype: function add(a, b)
