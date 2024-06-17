@@ -16,3 +16,6 @@
 >> - If no arguments are passed to the script, print “No argument”.
 ### 4-concat.js
 > A script that prints two arguments passed to it, in the following format: “ is ”.
+### 5-to_integer.js
+> A script that prints My number: <first argument converted in integer> if the first argument can be converted to an integer.
+>> - If the argument can’t be converted to an integer, print “Not a number”.
