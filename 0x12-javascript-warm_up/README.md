@@ -44,3 +44,8 @@
 >> - Factorial of NaN is 1
 >> - done recursively
 >> - uses a function
+### 11-second_biggest.js
+> A script that searches the second biggest integer in the list of arguments.
+>> - Assumes all arguments can be converted to integer,
+>> - If no argument passed, it prints 0,
+>> - If the number of arguments is 1, it prints 0.
