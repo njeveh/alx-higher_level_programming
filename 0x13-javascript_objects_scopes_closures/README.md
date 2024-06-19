@@ -52,4 +52,10 @@
 > A function that converts a number from base 10 to another base passed as argument:
 >> Prototype: exports.converter = function (base),
 >> No files imported,
->> No declaration of any new variable (var, let, etc..).
+>> No declaration of any new variable (var, let, etc..)
+### 100-map.js
+> A script that imports an array and computes a new array.
+>> Imports a list from a file 100-data.js
+>> uses a map
+>> A new list is created with each value equal to the value of the initial list, multipled by the index in the list
+>> Both the initial list and the new list are printed.
