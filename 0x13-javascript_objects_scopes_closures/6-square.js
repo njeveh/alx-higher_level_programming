@@ -6,7 +6,7 @@ class Square extends Shape {
     let row = '';
     for (let i = this.width; i > 0; i--) {
       if (c) {
-        row += 'C';
+        row += c;
       } else {
         row += 'X';
       }
