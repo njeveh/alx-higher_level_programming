@@ -32,4 +32,8 @@
 ### 5-square.js
 > A class Square that defines a square and inherits from Rectangle of 4-rectangle.js
 >> - The constructor takes 1 argument: size,
->> - The constructor of Rectangle is called (by using super())
+>> - The constructor of Rectangle is called (by using super()).
+### 6-square.js
+> A class Square that defines a square and inherits from Square of 5-square.js.
+>> - Has an instance method called charPrint(c) that prints the rectangle using the character c,
+>>> - If c is undefined, the character X is used.
