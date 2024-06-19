@@ -39,4 +39,8 @@
 >>> - If c is undefined, the character X is used.
 ### 7-occurrences.js
 > A function that returns the number of occurrences in a list:
->> Prototype: exports.nbOccurences = function (list, searchElement)
+>> Prototype: exports.nbOccurences = function (list, searchElement).
+### 8-esrever.js
+> A function that returns the reversed version of a list:
+>> Prototype: exports.esrever = function (list).
+>> - Does not use the built-in method reverse.
