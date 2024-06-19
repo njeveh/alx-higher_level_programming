@@ -44,3 +44,7 @@
 > A function that returns the reversed version of a list:
 >> Prototype: exports.esrever = function (list).
 >> - Does not use the built-in method reverse.
+### 9-logme.js
+> A function that prints the number of arguments already printed and the new argument value.
+>> Prototype: exports.logMe = function (item).
+>> Output format: <number arguments already printed>: <current argument value>.
