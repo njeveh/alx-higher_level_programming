@@ -37,3 +37,6 @@
 > A class Square that defines a square and inherits from Square of 5-square.js.
 >> - Has an instance method called charPrint(c) that prints the rectangle using the character c,
 >>> - If c is undefined, the character X is used.
+### 7-occurrences.js
+> A function that returns the number of occurrences in a list:
+>> Prototype: exports.nbOccurences = function (list, searchElement)
