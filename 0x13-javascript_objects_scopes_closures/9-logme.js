@@ -1,9 +1,8 @@
 #!/usr/bin/node
 
+let count = 0;
+
 exports.logMe = function (item) {
-  class LogCount {
-    static count = 0;
-  }
-  console.log(`${LogCount.count}: ${item}`);
-  ++LogCount.count;
+  console.log(`${count}: ${item}`);
+  count++;
 };
