@@ -48,3 +48,8 @@
 > A function that prints the number of arguments already printed and the new argument value.
 >> Prototype: exports.logMe = function (item).
 >> Output format: <number arguments already printed>: <current argument value>.
+### 10-converter.js
+> A function that converts a number from base 10 to another base passed as argument:
+>> Prototype: exports.converter = function (base),
+>> No files imported,
+>> No declaration of any new variable (var, let, etc..).
