@@ -8,3 +8,4 @@ for (const k in dict) {
     newDict[dict[k]].push(k);
   }
 }
+console.log(newDict);
