@@ -14,7 +14,7 @@ class Rectangle {
       row += 'X';
     }
     for (let j = this.height; j > 0; j--) {
-      console.log(line);
+      console.log(row);
     }
   }
 }
