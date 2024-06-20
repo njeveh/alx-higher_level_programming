@@ -1,20 +1,21 @@
 #!/usr/bin/node
-const fh = require('fs');
-const args = require('process').argv;
+const { argv, exit } = require('process');
+const fs = require('fs');
 
-let fileOneContent = '';
-let fileTwoContent = '';
-fh.readFile(args[2], 'utf8', (err, data) => {
-  if (err) throw err;
-  fileOneContent = data;
+if (argv.length < 3) {
+  console.log('Usage: ./102-concat [fileA] [fileB] [fileC]');
+  exit();
+}
+
+const contentA = fs.readFileSync(argv[2], 'utf8', function (err, result) {
+  if (err) console.log('error', err);
 });
-fh.readFile(args[3], 'utf8', (err, data) => {
-  if (err) throw err;
-  fileTwoContent = data;
+const contentB = fs.readFileSync(argv[3], 'utf8', function (err, result) {
+  if (err) console.log('error', err);
 });
-fh.writeFile(args[4], fileOneContent, (err) => {
-  if (err) throw err;
-});
-fh.appendFile(args[4], fileTwoContent, function (err) {
-  if (err) throw err;
+
+const contentC = contentA.concat(contentB);
+
+fs.writeFile(argv[4], contentC, 'utf8', function (err, result) {
+  if (err) console.log('error', err);
 });
