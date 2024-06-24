@@ -16,11 +16,15 @@ if __name__ == '__main__':
         charset="utf8"
         )
     cur = conn.cursor()
-    query = """SELECT * FROM cities
-    INNER JOIN states ON states.name = %s ORDER BY id ASC;"""
+    query = """SELECT cities.name FROM states
+            INNER JOIN cities ON states.id = cities.state_id
+            WHERE states.name = %s
+            ORDER BY cities.id ASC"""
+
     cur.execute(query, (argv[4],))
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    data = cur.fetchall()
+
+    # Create list with items and join them with ", "
+    print(", ".join([city[0] for city in data]))
     cur.close()
     conn.close()
