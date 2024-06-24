@@ -17,11 +17,8 @@ if __name__ == '__main__':
         charset="utf8"
         )
     cur = conn.cursor()
-    cur.execute(
-        """
-        SELECT * FROM states WHERE name='{name}' ORDER BY id
-        """.format(name=argv[4])
-        )
+    query = "SELECT * FROM states WHERE name='{}' ORDER BY id"
+    cur.execute(query.format(argv[4]))
     rows = cur.fetchall()
     for row in rows:
         print(row)
