@@ -11,3 +11,10 @@
 >> - Uses the module MySQLdb (import MySQLdb)
 >> - Connects to a MySQL server running on localhost at port 3306
 >> - Results are sorted in ascending order by states.ids
+### 2-my_filter_states.py
+> A script that takes in an argument and displays all values in the states table of hbtn_0e_0_usa where name matches the argument.
+>> - takes 4 arguments: mysql username, mysql password, database name and state name searched.
+>> - Uses the module MySQLdb (import MySQLdb)
+>> - Connects to a MySQL server running on localhost at port 3306
+>> - uses format to create the SQL query with the user input
+>> - Results are sorted in ascending order by states.ids
