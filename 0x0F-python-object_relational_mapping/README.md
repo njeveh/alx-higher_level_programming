@@ -25,3 +25,10 @@
 >> - Connects to a MySQL server running on localhost at port 3306
 >> - uses format to create the SQL query with the user input
 >> - Results are sorted in ascending order by states.ids
+### 4-cities_by_state.py
+> A script that lists all cities from the database hbtn_0e_4_usa
+>> - Takes 3 arguments: mysql username, mysql password and database name
+>> - Uses the module MySQLdb (import MySQLdb)
+>> - Connects to a MySQL server running on localhost at port 3306
+>> - uses format to create the SQL query with the user input
+>> - Results are sorted in ascending order by cities.id
