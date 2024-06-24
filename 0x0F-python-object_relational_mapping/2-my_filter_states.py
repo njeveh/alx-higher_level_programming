@@ -19,7 +19,7 @@ if __name__ == '__main__':
     cur = conn.cursor()
     cur.execute(
         """
-        SELECT * FROM states WHERE name={name} ORDER BY id
+        SELECT * FROM states WHERE name='{name}' ORDER BY id
         """.format(name=argv[4])
         )
     rows = cur.fetchall()
