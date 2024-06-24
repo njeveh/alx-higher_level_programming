@@ -18,8 +18,8 @@ if __name__ == '__main__':
         )
     cur = conn.cursor()
     query = """
-    SELECT * FROM states WHERE BINARY name=%s ORDER BY id ASC
-    """, (argv[4],)
+    SELECT * FROM states WHERE BINARY name=%(name)s ORDER BY id ASC
+    """, {'name': argv[4]}
     cur.execute(query)
     rows = cur.fetchall()
     for row in rows:
