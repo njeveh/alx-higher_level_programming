@@ -63,3 +63,10 @@
 >> - Connects to a MySQL server running on localhost at port 3306
 >> - State displayed is the first in states.id
 >> - If the table states is empty, Nothing is printed followed by a new line
+### 9-model_state_filter_a.py
+> A script that lists all State objects that contain the letter a from the database hbtn_0e_6_usa.
+>> - Takes 3 arguments: mysql username, mysql password and database name
+>> - Uses the module SQLAlchemy
+>> - Imports State and Base from model_state - from model_state import Base, State
+>> - Connects to a MySQL server running on localhost at port 3306
+>> - Results are sorted in ascending order by states.id
