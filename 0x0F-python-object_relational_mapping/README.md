@@ -93,3 +93,9 @@
 >> - Imports State and Base from model_state - from model_state import Base, State
 >> - Connects to a MySQL server running on localhost at port 3306
 >> - Changes the name of the State where id = 2 to New Mexico
+### 13-model_state_delete_a.py
+> A script that deletes all State objects with a name containing the letter a from the database hbtn_0e_6_usa.
+>> - Takes 3 arguments: mysql username, mysql password and database name
+>> - Uses the module SQLAlchemy
+>> - Imports State and Base from model_state - from model_state import Base, State
+>> - Connects to a MySQL server running on localhost at port 3306
