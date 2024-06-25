@@ -99,3 +99,20 @@
 >> - Uses the module SQLAlchemy
 >> - Imports State and Base from model_state - from model_state import Base, State
 >> - Connects to a MySQL server running on localhost at port 3306
+### model_city.py
+> A python file that contains the class definition of a City and an instance Base = declarative_base():
+>> - City class:
+>>> - links to the MySQL table cities
+>>> - inherits from Base (imported from model_state)
+>>> - Has class attribute id that represents a column of an auto-generated, unique integer, can’t be null and is a primary key
+>>> - Has class attribute name that represents a column of a string with maximum 128 characters and can’t be null
+>>> - Has class attribute state_id that represents a column of an integer, can’t be null and is a foreign key to states.id
+>> - Uses the module SQLAlchemy
+>> - Connects to a MySQL server running on localhost at port 3306
+### 14-model_city_fetch_by_state.py
+> A script that prints all City objects from the database hbtn_0e_14_usa.
+>> - Takes 3 arguments: mysql username, mysql password and database name
+>> - Uses the module SQLAlchemy
+>> - Imports State and Base from model_state - from model_state import Base, State
+>> - Connects to a MySQL server running on localhost at port 3306
+>> - Results are sorted in ascending order by cities.id
