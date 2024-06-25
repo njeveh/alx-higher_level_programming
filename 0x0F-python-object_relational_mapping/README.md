@@ -39,3 +39,12 @@
 >> - Connects to a MySQL server running on localhost at port 3306
 >> - uses format to create the SQL query with the user input
 >> - Results are sorted in ascending order by cities.id
+### model_state.py
+> A python file that contains the class definition of a State and an instance Base = declarative_base():
+>> - State class:
+>>> - inherits from Base Tips
+>>> - links to the MySQL table states
+>>> - Has class attribute id that represents a column of an auto-generated, unique integer, can’t be null and is a primary key
+>>> - Has class attribute name that represents a column of a string with maximum 128 characters and can’t be null
+>> - Uses the module SQLAlchemy
+>> - Connects to a MySQL server running on localhost at port 3306
