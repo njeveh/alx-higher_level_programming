@@ -15,6 +15,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    session.query(State).get(2).\
-        update({"name": "New Mexico"}, synchronize_session='fetch')
+    state = session.query(State).get(2)
+    state.name = "New Mexico"
+    session.add(state)
     session.commit()
