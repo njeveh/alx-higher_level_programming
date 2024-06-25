@@ -70,3 +70,12 @@
 >> - Imports State and Base from model_state - from model_state import Base, State
 >> - Connects to a MySQL server running on localhost at port 3306
 >> - Results are sorted in ascending order by states.id
+### 10-model_state_my_get.py
+> A script that prints the State object with the name passed as argument from the database hbtn_0e_6_usa.
+>> - Takes 4 arguments: mysql username, mysql password, database name and state name to search (SQL injection free)
+>> - Uses the module SQLAlchemy
+>> - Imports State and Base from model_state - from model_state import Base, State
+>> - Connects to a MySQL server running on localhost at port 3306
+>> - Assumes you have one record with the state name to search
+>> - Results displays the states.id
+>> - If no state has the name you searched for, Not found is displayed
