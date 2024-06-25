@@ -79,3 +79,10 @@
 >> - Assumes you have one record with the state name to search
 >> - Results displays the states.id
 >> - If no state has the name you searched for, Not found is displayed
+### 11-model_state_insert.py
+> A script that adds the State object “Louisiana” to the database hbtn_0e_6_usa
+>> - Takes 3 arguments: mysql username, mysql password and database name
+>> - Uses the module SQLAlchemy
+>> - Imports State and Base from model_state - from model_state import Base, State
+>> - Connects to a MySQL server running on localhost at port 3306
+>> - Prints the new states.id after creation
