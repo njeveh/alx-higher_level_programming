@@ -48,3 +48,10 @@
 >>> - Has class attribute name that represents a column of a string with maximum 128 characters and can’t be null
 >> - Uses the module SQLAlchemy
 >> - Connects to a MySQL server running on localhost at port 3306
+### 7-model_state_fetch_all.py
+> A script that lists all State objects from the database hbtn_0e_6_usa
+>> - Takes 3 arguments: mysql username, mysql password and database name
+>> - Uses the module SQLAlchemy
+>> - Imports State and Base from model_state - from model_state import Base, State
+>> - Connects to a MySQL server running on localhost at port 3306
+>> - Results are sorted in ascending order by states.id
