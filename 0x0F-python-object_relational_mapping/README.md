@@ -116,3 +116,6 @@
 >> - Imports State and Base from model_state - from model_state import Base, State
 >> - Connects to a MySQL server running on localhost at port 3306
 >> - Results are sorted in ascending order by cities.id
+### 100-relationship_states_cities.py
+### relationship_state.py
+### relationship_state.py
