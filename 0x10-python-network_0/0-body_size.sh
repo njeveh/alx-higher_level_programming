@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-curl $1
+curl -s $1
