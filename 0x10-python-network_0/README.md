@@ -23,3 +23,12 @@
 >> - A variable email is sent with the value test@gmail.com
 >> - A variable subject is sent with the value I will always be here for PLD
 >> - Uses curl
+### 6-peak.py and 6-peak.txt
+> A function that finds a peak in a list of unsorted integers.
+
+>> - Prototype: def find_peak(list_of_integers):
+>> no modules are imported
+>> - Uses an algorithm with the lowest complexity (hint: you don’t need to go through all numbers to find a peak)
+>> - 6-peak.py contains the function
+>> - 6-peak.txt contains the complexity of the algorithm: O(log(n)), O(n), O(nlog(n)) or O(n2)
+> Note: there may be more than one peak in the list
