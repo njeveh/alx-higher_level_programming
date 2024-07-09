@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Module that contains a function that finds peak of an array"""
+
 
 def find_peak(list_of_integers):
     """Finds peak
@@ -12,4 +14,5 @@ def find_peak(list_of_integers):
     for i in range(1, len_lst):
         if list_of_integers[i] >= peak:
             peak = list_of_integers[i]
+
     return peak
