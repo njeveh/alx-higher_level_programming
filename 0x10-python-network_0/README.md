@@ -38,3 +38,7 @@
 >> - Does not use any pipe, redirection, etc.
 >> - Does not use ; and &&
 >> - Uses curl
+### 101-post_json.sh
+> A Bash script that sends a JSON POST request to a URL passed as the first argument, and displays the body of the response.
+>> - Sends a POST request with the contents of a file, passed with the filename as the second argument of the script, in the body of the request
+>> - Uses curl
