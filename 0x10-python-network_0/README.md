@@ -10,3 +10,6 @@
 ### 2-delete.sh
 > A Bash script that sends a DELETE request to the URL passed as the first argument and displays the body of the response
 >> - Uses curl
+### 3-methods.sh
+> A Bash script that takes in a URL and displays all HTTP methods the server will accept.
+>> - Uses curl
