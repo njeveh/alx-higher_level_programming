@@ -8,11 +8,11 @@ def find_peak(list_of_integers):
         list_of_integers (list): list of integers
     """
     len_lst = len(list_of_integers)
-    if len_lst < 3:
+    if len_lst is None:
         return None
-    peak = list_of_integers[1]
-    for i in range(1, len_lst):
-        if list_of_integers[i] >= peak:
-            peak = list_of_integers[i]
+    peak = float('-inf')  # Initialize peak as negative infinity
+    for num in list_of_integers:
+        if num > peak:
+            peak = num
 
     return peak
