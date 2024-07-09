@@ -32,3 +32,9 @@
 >> - 6-peak.py contains the function
 >> - 6-peak.txt contains the complexity of the algorithm: O(log(n)), O(n), O(nlog(n)) or O(n2)
 > Note: there may be more than one peak in the list
+
+### 100-status_code.sh
+>  A Bash script that sends a request to a URL passed as an argument, and displays only the status code of the response.
+>> - Does not use any pipe, redirection, etc.
+>> - Does not use ; and &&
+>> - Uses curl
