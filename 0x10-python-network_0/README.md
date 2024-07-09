@@ -11,5 +11,9 @@
 > A Bash script that sends a DELETE request to the URL passed as the first argument and displays the body of the response
 >> - Uses curl
 ### 3-methods.sh
-> A Bash script that takes in a URL and displays all HTTP methods the server will accept.
+> A Bash script that takes in a URL as an argument, and displays all HTTP methods the server will accept.
+>> - Uses curl
+### 4-header.sh
+> A Bash script that takes in a URL as an argument, sends a GET request to the URL, and displays the body of the response
+>> - A header variable X-School-User-Id must be sent with the value 98
 >> - Uses curl
