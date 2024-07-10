@@ -38,3 +38,8 @@
 >> - The email is sent in the variable email
 >> - Uses the packages requests and sys
 >> - Does not import packages other than requests and sys
+### 7-error_code.py
+> A Python script that takes in a URL, sends a request to the URL and displays the body of the response.
+>> - If the HTTP status code is greater than or equal to 400, prints: Error code: followed by the value of the HTTP status code
+>> - Uses the packages requests and sys
+>> - Does not import packages other than requests and sys
