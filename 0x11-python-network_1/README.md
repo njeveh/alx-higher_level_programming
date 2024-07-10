@@ -43,3 +43,12 @@
 >> - If the HTTP status code is greater than or equal to 400, prints: Error code: followed by the value of the HTTP status code
 >> - Uses the packages requests and sys
 >> - Does not import packages other than requests and sys
+### 8-json_api.py
+> A Python script that takes in a letter and sends a POST request to http://0.0.0.0:5000/search_user with the letter as a parameter.
+>> - The letter is sent in the variable q
+>> - If no argument is given, it sets q=""
+>> - If the response body is properly JSON formatted and not empty, it displays the id and name like this: [<id>] <name>
+Otherwise: it Displays Not a valid JSON if the JSON is invalid
+>> - Displays No result if the JSON is empty
+>> - Uses the packages requests and sys
+>> - Does not import packages other than requests and sys
