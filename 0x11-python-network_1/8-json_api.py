@@ -8,10 +8,9 @@ from sys import argv
 import requests
 
 if __name__ == "__main__":
-    if argv[1]:
+    q = ''
+    if len(argv) > 1:
         q = argv[1]
-    else:
-        q = ""
     payload = {'q': q}
     response = requests.post("http://0.0.0.0:5000/search_user", data=q)
     try:
