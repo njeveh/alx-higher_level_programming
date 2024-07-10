@@ -20,5 +20,5 @@ if __name__ == "__main__":
                     commits[i].get("commit").get("author").get("name"),
                 )
             )
-    except(IndexError, KeyError):
+    except (IndexError, KeyError):
         pass
