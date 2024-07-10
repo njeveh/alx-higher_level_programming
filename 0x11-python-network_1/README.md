@@ -59,3 +59,9 @@ Otherwise: it Displays Not a valid JSON if the JSON is invalid
 >> - The second argument is your password (in your case, a personal access token as password)
 >> - Uses the packages requests and sys
 >> - Does not import packages other than requests and sys
+### 100-github_commits.py
+> A Python script that list 10 commits (from the most recent to oldest) of the repository “rails” by the user “rails”
+>> - The first argument is the repository name
+>> - The second argument is the owner name
+>> - Uses the packages requests and sys
+>> - Does not import packages other than requests and sys
