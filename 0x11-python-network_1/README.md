@@ -52,3 +52,10 @@ Otherwise: it Displays Not a valid JSON if the JSON is invalid
 >> - Displays No result if the JSON is empty
 >> - Uses the packages requests and sys
 >> - Does not import packages other than requests and sys
+### 10-my_github.py
+> A Python script that takes your GitHub credentials (username and password) and uses the GitHub API to display your id
+>> - Uses Basic Authentication with a personal access token as password to access to your information (only read:user permission is needed)
+>> - The first argument is your username
+>> - The second argument is your password (in your case, a personal access token as password)
+>> - Uses the packages requests and sys
+>> - Does not import packages other than requests and sys
