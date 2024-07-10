@@ -30,3 +30,7 @@
 
 >> - Uses the package requests
 >> - Does not import any packages other than requests
+### 5-hbtn_header.py
+> A Python script that takes in a URL, sends a request to the URL and displays the value of the variable X-Request-Id in the response header
+>> - Uses the packages requests and sys
+>> - Does not import other packages than requests and sys
