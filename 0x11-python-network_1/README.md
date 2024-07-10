@@ -27,10 +27,14 @@
 >> - Uses a with statement
 ### 4-hbtn_status.py
 > A Python script that fetches https://alx-intranet.hbtn.io/status
-
 >> - Uses the package requests
 >> - Does not import any packages other than requests
 ### 5-hbtn_header.py
 > A Python script that takes in a URL, sends a request to the URL and displays the value of the variable X-Request-Id in the response header
 >> - Uses the packages requests and sys
 >> - Does not import other packages than requests and sys
+### 6-post_email.py
+> A Python script that takes in a URL and an email address, sends a POST request to the passed URL with the email as a parameter, and finally displays the body of the response.
+>> - The email is sent in the variable email
+>> - Uses the packages requests and sys
+>> - Does not import packages other than requests and sys
