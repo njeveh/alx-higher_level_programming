@@ -6,8 +6,15 @@
 >> - Uses a with statement
 ### 1-hbtn_header.py
 > A Python script that takes in a URL, sends a request to the URL and displays the value of the X-Request-Id variable found in the header of the response.
+>> - Uses the packages urllib and sys
 >> - Does not import any packages other than urllib and sys
 >> - Uses a with statement
->> - Uses the packages urllib and sys
 >> - The value of this variable is different for each request
 >> - Arguments passed to the script are not checked (number or type)
+### 2-post_email.py
+> A Python script that takes in a URL and an email, sends a POST request to the passed URL with the email as a parameter, and displays the body of the response (decoded in utf-8)
+>> - The email is sent in the email variable
+>> - Uses the packages urllib and sys
+>> - Does not import any packages other than urllib and sys
+>> - Arguments passed to the script are not checked (number or type)
+>> - Uses a with statement
