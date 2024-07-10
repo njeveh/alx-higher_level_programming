@@ -18,3 +18,10 @@
 >> - Does not import any packages other than urllib and sys
 >> - Arguments passed to the script are not checked (number or type)
 >> - Uses a with statement
+### 3-error_code.py
+> A Python script that takes in a URL, sends a request to the URL and displays the body of the response (decoded in utf-8).
+>> - Manages urllib.error.HTTPError exceptions and print: Error code: followed by the HTTP status code
+>> - Uses the packages urllib and sys
+>> - Does not import any packages other than urllib and sys
+>> - Arguments passed to the script are not checked (number or type)
+>> - Uses a with statement
