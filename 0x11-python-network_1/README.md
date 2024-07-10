@@ -25,3 +25,8 @@
 >> - Does not import any packages other than urllib and sys
 >> - Arguments passed to the script are not checked (number or type)
 >> - Uses a with statement
+### 4-hbtn_status.py
+> A Python script that fetches https://alx-intranet.hbtn.io/status
+
+>> - Uses the package requests
+>> - Does not import any packages other than requests
