@@ -10,7 +10,7 @@ import urllib.parse
 
 if __name__ == "__main__":
     values = {'email': argv[2]}
-    
+
     # convert data to bytes
     data = urllib.parse.urlencode(values).encode('ascii')
     req = urllib.request.Request(argv[1], data)
